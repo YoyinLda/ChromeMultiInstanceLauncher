@@ -19,9 +19,3 @@ Thumbs.db
 *.tmp
 *.temp
 
-# Build outputs
-dist/
-*.exe
-
-# User configuration (keep example)
-texts.json
