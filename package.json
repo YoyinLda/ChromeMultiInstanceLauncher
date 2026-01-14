@@ -1,0 +1,43 @@
+{
+  "name": "chrome-instances-opener",
+  "version": "1.0.0",
+  "description": "Script para abrir múltiples instancias independientes de Chrome con una URL específica",
+  "main": "index.js",
+  "bin": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "open": "node index.js",
+    "build": "pkg .",
+    "build:mac": "pkg . --targets node18-macos-x64,node18-macos-arm64",
+    "build:win": "pkg . --targets node18-win-x64",
+    "build:all": "pkg . --targets node18-macos-x64,node18-macos-arm64,node18-win-x64"
+  },
+  "keywords": [
+    "chrome",
+    "browser",
+    "automation",
+    "multiple-instances"
+  ],
+  "author": "Autofact",
+  "license": "ISC",
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "devDependencies": {
+    "pkg": "^5.8.1"
+  },
+  "pkg": {
+    "scripts": [
+      "index.js"
+    ],
+    "assets": [
+      "texts.json.example"
+    ],
+    "targets": [
+      "node18-macos-x64",
+      "node18-macos-arm64",
+      "node18-win-x64"
+    ],
+    "outputPath": "dist"
+  }
+}
