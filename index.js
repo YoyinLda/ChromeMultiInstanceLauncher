@@ -24,21 +24,34 @@ function replacePlaceholders(template, values) {
 
 // Función para cargar textos desde archivo JSON o usar valores por defecto
 function loadTexts() {
-  // Determinar la ruta del archivo texts.json (mismo directorio que el ejecutable o script)
-  const scriptDir = path.dirname(require.main ? require.main.filename : __filename);
-  const textsPath = path.join(scriptDir, 'texts.json');
-  
   let loadedTexts = {};
   
-  // Intentar cargar el archivo JSON
+  // Intentar cargar desde archivo externo (para personalización)
+  // Prioridad: 1) Archivo externo junto al ejecutable, 2) Valores por defecto hardcodeados
+  let textsPath = null;
+  
+  // Si está empaquetado con pkg, los assets están en el mismo directorio que el ejecutable
+  if (process.pkg) {
+    // En pkg, process.execPath apunta al ejecutable
+    textsPath = path.join(path.dirname(process.execPath), 'texts.json');
+  } else {
+    // Si no está empaquetado, buscar en el mismo directorio que el script
+    const scriptDir = path.dirname(require.main ? require.main.filename : __filename);
+    textsPath = path.join(scriptDir, 'texts.json');
+  }
+  
+  // Intentar cargar el archivo JSON externo (tiene prioridad para personalización)
   try {
     if (fs.existsSync(textsPath)) {
       const jsonContent = fs.readFileSync(textsPath, 'utf8');
       loadedTexts = JSON.parse(jsonContent);
     }
   } catch (error) {
-    console.error('⚠️  Advertencia: No se pudo cargar texts.json, usando valores por defecto');
+    // Si hay error, continuar con valores por defecto
   }
+  
+  // Nota: Los valores por defecto están hardcodeados abajo, por lo que siempre funcionará
+  // incluso si no existe texts.json. El archivo externo solo permite personalización.
   
   // Valores por defecto (usados si no existe el archivo JSON o faltan campos)
   const defaultTexts = {
