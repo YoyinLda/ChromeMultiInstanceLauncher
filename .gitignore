@@ -19,3 +19,7 @@ Thumbs.db
 *.tmp
 *.temp
 
+# Nota: dist/ y texts.json se incluyen en el repositorio para distribución
+# Si deseas ignorarlos localmente, descomenta las siguientes líneas:
+# dist/
+# texts.json

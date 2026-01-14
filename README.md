@@ -2,6 +2,43 @@
 
 Script para abrir múltiples instancias independientes de Google Chrome con una URL específica.
 
+## 📥 Descarga Rápida
+
+### Descargar Ejecutables Pre-compilados
+
+Los ejecutables ya están disponibles en este repositorio. Descarga el archivo correspondiente a tu sistema operativo desde la carpeta [`dist/`](https://github.com/YoyinLda/ChromeMultiInstanceLauncher/tree/main/dist):
+
+#### 🍎 macOS
+
+- **Apple Silicon (M1/M2/M3)**: [chrome-instances-opener-macos-arm64](https://github.com/YoyinLda/ChromeMultiInstanceLauncher/raw/main/dist/chrome-instances-opener-macos-arm64)
+- **Intel**: [chrome-instances-opener-macos-x64](https://github.com/YoyinLda/ChromeMultiInstanceLauncher/raw/main/dist/chrome-instances-opener-macos-x64)
+
+**Instrucciones para macOS:**
+1. Descarga el archivo correspondiente a tu Mac
+2. Abre Terminal y navega a la carpeta de descargas
+3. Haz el archivo ejecutable: `chmod +x chrome-instances-opener-macos-*`
+4. Ejecuta: `./chrome-instances-opener-macos-*`
+
+**Nota**: La primera vez puede que necesites permitir la ejecución en Preferencias del Sistema > Seguridad y Privacidad.
+
+#### 🪟 Windows
+
+- **Windows (64-bit)**: [chrome-instances-opener-win-x64.exe](https://github.com/YoyinLda/ChromeMultiInstanceLauncher/raw/main/dist/chrome-instances-opener-win-x64.exe)
+
+**Instrucciones para Windows:**
+1. Descarga el archivo `.exe`
+2. Haz doble clic para ejecutar
+3. Si Windows Defender muestra una advertencia, haz clic en "Más información" y luego "Ejecutar de todas formas" (es un falso positivo común)
+
+#### 📝 Archivo de Configuración
+
+También puedes descargar el archivo de configuración de textos:
+- [texts.json.example](https://github.com/YoyinLda/ChromeMultiInstanceLauncher/raw/main/texts.json.example)
+
+Cópialo como `texts.json` en el mismo directorio que el ejecutable para personalizar los textos.
+
+---
+
 ## 📋 Descripción
 
 Este proyecto permite abrir múltiples instancias completamente independientes de Chrome (no pestañas), cada una con su propio perfil temporal. Ideal para situaciones donde necesitas acceder simultáneamente a un sitio web desde diferentes "sesiones".
